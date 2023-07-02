@@ -1,6 +1,4 @@
-<app-navbar [darkTheme] = 'isDarkTheme' (darkThemeToggled)="darkThemeActive()"></app-navbar>
-<app-intro 
-[fromParent] = 'testTitle' 
-[fromParent2] = 'testTitle2' 
-[darkTheme] = 'isDarkTheme'
-></app-intro>
+<div class="h-screen">
+  <app-navbar [darkTheme]='isDarkTheme' (darkThemeToggled)="darkThemeActive()"></app-navbar>
+  <app-intro [darkTheme]='isDarkTheme'></app-intro>
+</div>
