@@ -18,19 +18,25 @@
       <li>Languages</li>
       <li>Projects</li>
       <li>Resume</li>
-      <button class="bg-black text-white p-1 rounded-full" [ngClass]="{'hidden' : darkTheme}"
-        (click)="toggleDarkTheme()">Dark</button>
-      <button class="bg-white text-black p-1 rounded-full" [ngClass]="{'hidden' : !darkTheme}"
-        (click)="toggleDarkTheme()">Light</button>
+      <div class="flex items-center justify-start">
+        <button (click)="toggleDarkTheme()" [ngClass]="{'hidden' : !darkTheme}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 256 256"><path fill="yellow" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0Zm8 24a64 64 0 1 0 64 64a64.07 64.07 0 0 0-64-64Zm-69.66 5.66a8 8 0 0 0 11.32-11.32l-16-16a8 8 0 0 0-11.32 11.32Zm0 116.68l-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0-11.32-11.32ZM192 72a8 8 0 0 0 5.66-2.34l16-16a8 8 0 0 0-11.32-11.32l-16 16A8 8 0 0 0 192 72Zm5.66 114.34a8 8 0 0 0-11.32 11.32l16 16a8 8 0 0 0 11.32-11.32ZM48 128a8 8 0 0 0-8-8H16a8 8 0 0 0 0 16h24a8 8 0 0 0 8-8Zm80 80a8 8 0 0 0-8 8v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-8-8Zm112-88h-24a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16Z"/></svg>
+        </button>
+        <button (click)="toggleDarkTheme()" [ngClass]="{'hidden' : darkTheme}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 16 16"><path fill="black" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/></svg>
+        </button>
+      </div>
     </ul>
   </div>
 
   <div class="p-1 md:pb-2 md:pt-2 md:hidden grid grid-cols-3 items-center w-full relative">
     <div class="flex items-center justify-start">
-      <button class="bg-black text-white p-1 rounded-full" [ngClass]="{'hidden' : darkTheme}"
-        (click)="toggleDarkTheme()">Dark</button>
-      <button class="bg-white text-black p-1 rounded-full" [ngClass]="{'hidden' : !darkTheme}"
-        (click)="toggleDarkTheme()">Light</button>
+      <button (click)="toggleDarkTheme()" [ngClass]="{'hidden' : !darkTheme}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 256 256"><path fill="yellow" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0Zm8 24a64 64 0 1 0 64 64a64.07 64.07 0 0 0-64-64Zm-69.66 5.66a8 8 0 0 0 11.32-11.32l-16-16a8 8 0 0 0-11.32 11.32Zm0 116.68l-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0-11.32-11.32ZM192 72a8 8 0 0 0 5.66-2.34l16-16a8 8 0 0 0-11.32-11.32l-16 16A8 8 0 0 0 192 72Zm5.66 114.34a8 8 0 0 0-11.32 11.32l16 16a8 8 0 0 0 11.32-11.32ZM48 128a8 8 0 0 0-8-8H16a8 8 0 0 0 0 16h24a8 8 0 0 0 8-8Zm80 80a8 8 0 0 0-8 8v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-8-8Zm112-88h-24a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16Z"/></svg>
+      </button>
+      <button (click)="toggleDarkTheme()" [ngClass]="{'hidden' : darkTheme}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 16 16"><path fill="black" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/></svg>
+      </button>
     </div>
     <div class="flex flex-col justify-center items-center">
       <div class="w-[100px] md:w-[150px] flex justify-end">
