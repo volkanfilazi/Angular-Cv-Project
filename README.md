@@ -3,9 +3,19 @@
 ## Creating My Vue3 Resume with Angular
 <hr>
 
-### Future
+## Future
 - If you want to see my Vue3 Resume you can find it in my github repository.
 - All design is the same with Vue3 just with another programm language.
+
+## Live View
+Angular Version
+```
+https://www.volkanfilazi.de/
+```
+Vue3 Version
+```
+https://www.volkanfilazi.at/
+```
 
 <br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
