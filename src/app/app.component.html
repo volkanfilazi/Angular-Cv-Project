@@ -1,2 +1,6 @@
-<app-navbar></app-navbar>
-<app-intro [fromParent] = 'testTitle' [fromParent2] = 'testTitle2' (messageEvent)='reciveMessage($event)'></app-intro>
+<app-navbar [darkTheme] = 'isDarkTheme' (darkThemeToggled)="darkThemeActive()"></app-navbar>
+<app-intro 
+[fromParent] = 'testTitle' 
+[fromParent2] = 'testTitle2' 
+[darkTheme] = 'isDarkTheme'
+></app-intro>
