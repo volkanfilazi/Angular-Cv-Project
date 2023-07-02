@@ -10,14 +10,11 @@ export class IntroComponent implements OnInit {
 
   @Input() fromParent:string | undefined;
   @Input() fromParent2:string | undefined;
+  @Input() darkTheme: boolean | undefined
 
   @Output() messageEvent = new EventEmitter<string>();
   ngOnInit(): void {
       
   }
-
-  clickEvent(){
-    console.log("clicked");
-    this.messageEvent.emit(this.outputChildMessage);
-  }
+  
 }

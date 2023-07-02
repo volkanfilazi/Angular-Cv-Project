@@ -2,28 +2,25 @@
   let i = "okay"
 </script>
 
-<div
-  class="flex relative flex-col bg-black sm:mt-20 md:mt-0 sm:flex-col md:h-full md:z-10 md:flex-row md:justify-center md:items-center">
+<div [ngClass]="{'dark': darkTheme}"
+  class="flex relative flex-col bg-white sm:mt-20 md:mt-0 sm:flex-col md:h-full md:z-10 md:flex-row md:justify-center md:items-center">
   <div class="observed-sections w-full flex gap-2 flex-col mt-14 md:mt-0 md:h-screen justify-center items-center">
     <div class="flex md:mt-0 w-full items-center justify-center mt-5">
-      <h1 class="text-white rounded-lg text-center p-1 font-bold text-[20px] md:text-[30px]">{{ intro }}</h1>
+      <h1 class="rounded-lg text-center p-1 font-bold text-[20px] md:text-[30px]">{{ intro }}</h1>
     </div>
     <div
-      class="flex text-white mt-5 flex-col items-center sm:items-center md:justify-center md:items-center w-full space-y-10 p-2 sm:w-full md:w-1/2">
+      class="flex mt-5 flex-col items-center sm:items-center md:justify-center md:items-center w-full space-y-10 p-2 sm:w-full md:w-1/2">
       <div
-        class="border-[1px] text-sm md:text-md w-full sm:w-full md:w-[500px] border-white rounded-xl font-bold flex justify-center items-center h-[100px]">
-        <p class="text-yellow-400 md:text-lg font-bold">&lt;code&gt;</p>
-        <p class="text-white md:text-lg font-bold">asda<span class=" text-yellow-400 animate-ping">|</span></p>
-        <p class="text-yellow-400 md:text-lg font-bold">&lt;/code&gt;</p>
+        class="border-[1px] text-sm md:text-md w-full sm:w-full md:w-[500px] border-black rounded-xl font-bold flex justify-center items-center h-[100px]" [ngClass]="{'!border-white' : darkTheme}">
+        <p class="text-red-700 md:text-lg font-bold" [ngClass]="{'!text-yellow-400' : darkTheme}">&lt;code&gt;</p>
+        <p class="md:text-lg font-bold">asda<span class=" text-yellow-400 animate-ping">|</span></p>
+        <p class="text-red-700 md:text-lg font-bold" [ngClass]="{'!text-yellow-400' : darkTheme}">&lt;/code&gt;</p>
       </div>
-      <h1 class="text-2xl font-serif md:text-4xl font-bold text-white">MY NAME IS<span class="text-yellow-400"> VOLKAN
+      <h1 class="text-2xl font-serif md:text-4xl font-bold">MY NAME IS<span class="text-red-700" [ngClass]="{'!text-yellow-400' : darkTheme}"> VOLKAN
           FILAZI</span></h1>
-          <h2 class="text-sm font-serif md:text-2xl text-center sm:text-center md:text-start font-bold text-white"
+          <h2 class="text-sm font-serif md:text-2xl text-center sm:text-center md:text-start font-bold"
           :style="{ color: darkmode ? 'black' : '' }"> Iam a Web and Android Developer
         </h2>
-        <p>{{ fromParent }}</p>
-        <p>{{ fromParent2 }}</p>
-        <button (click)="clickEvent()">yeap</button>
     </div>
   </div>
 </div>
