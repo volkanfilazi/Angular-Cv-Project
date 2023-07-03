@@ -5,6 +5,8 @@ import { NavbarComponent } from './navbar/navbar.components';
 import { IntroComponent } from './intro/intro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolsComponent } from './tools/tools.component';
+import { LanguagesComponent } from './languages/languages.component';
+import { ProjectIconComponent } from './navbar/project-icon/project-icon.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +14,8 @@ import { ToolsComponent } from './tools/tools.component';
     NavbarComponent,
     IntroComponent,
     ToolsComponent,
+    LanguagesComponent,
+    ProjectIconComponent,
   ],
   imports: [
     BrowserModule,

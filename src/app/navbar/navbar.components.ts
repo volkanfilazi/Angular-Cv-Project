@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { NavbarService } from '../services/navbar/navbar.service'
 
 @Component({
   selector: 'app-navbar',
@@ -11,5 +12,11 @@ export class NavbarComponent {
 
   toggleDarkTheme() {
     this.darkThemeToggled.emit();
+  }
+
+  constructor(private navbarService: NavbarService){}
+
+  get navbarElements(){
+    return this.navbarService.navbarElements
   }
 }
