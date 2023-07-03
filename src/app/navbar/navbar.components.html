@@ -1,11 +1,11 @@
-<div [ngClass]="{'dark' : darkTheme, 'border-white' : darkTheme}"
-  class="flex w-full z-[100] min-h-[35px] items-center border-b-[1px] border-red-700 bg-white lg:px-40 md:z-40 justify-end font-bold">
-  <div class="p-1 md:pb-2 md:pt-2 hidden md:flex justify-between w-full items-center relative">
+<div id="navbar" [ngClass]="{'dark' : darkTheme, 'border-white' : darkTheme}"
+  class="flex w-full z-[100] min-h-[35px] items-center border-b-[1px] border-red-700 bg-[#ecedef] md:z-40 justify-center font-bold">
+  <div class="p-1 w-full md:w-4/5 md:pb-2 md:pt-2 hidden md:flex justify-between items-center relative">
     <app-project-icon [darkTheme]="darkTheme"></app-project-icon>
     <ul class="hidden md:flex gap-2 items-center">
       <div *ngFor="let navbar of navbarElements">
         <a class="scroll-smooth cursor-pointer transition-all duration-300 border-b-[2px] border-transparent hover:border-red-700 hover:transition-all hover:duration-300 p-1"
-          [ngClass]="{'hover:!border-yellow-400' : darkTheme}" :href="navbar.link">{{ navbar.name }}</a>
+          [ngClass]="{'hover:!border-yellow-400' : darkTheme}" [href]="navbar.link">{{ navbar.name }}</a>
       </div>
       <div class="flex items-center justify-start">
         <button (click)="toggleDarkTheme()" [ngClass]="{'hidden' : !darkTheme}">
@@ -48,7 +48,7 @@
         [ngClass]="{'!dark' : darkTheme,'!border-white' : darkTheme, 'dark' : darkTheme}">
          <div *ngFor="let navbar of navbarElements">
         <a class="scroll-smooth cursor-pointer transition-all duration-300 border-b-[1px] border-transparent hover:border-yellow-400 hover:transition-all hover:duration-300 p-1"
-          :class="{'hover:!border-black' : darkmode}" :href="navbar.link">{{ navbar.name }}</a>
+          :class="{'hover:!border-black' : darkmode}" [href]="navbar.link">{{ navbar.name }}</a>
       </div>
       </ul>
     </div>

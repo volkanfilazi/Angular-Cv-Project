@@ -1,6 +1,9 @@
-<div class="h-screen">
-  <app-navbar [darkTheme]='isDarkTheme' (darkThemeToggled)="darkThemeActive()"></app-navbar>
-  <app-intro [darkTheme]='isDarkTheme'></app-intro>
-  <app-tools [darkTheme]='isDarkTheme'></app-tools>
-  <app-languages [darkTheme]="isDarkTheme"></app-languages>
+<app-navbar [darkTheme]='isDarkTheme' (darkThemeToggled)="darkThemeActive()"></app-navbar>
+<div class="bg-white flex flex-col items-center" [ngClass]="{'bg-black' : isDarkTheme}">
+  <div class="w-full bg-[#ecedef] md:w-4/5" [ngClass]="{'dark' : isDarkTheme}">
+    <app-intro [darkTheme]='isDarkTheme'></app-intro>
+    <app-tools [darkTheme]='isDarkTheme'></app-tools>
+    <app-languages [darkTheme]="isDarkTheme"></app-languages>
+    <app-resume [darkTheme]="isDarkTheme"></app-resume>
+  </div>
 </div>

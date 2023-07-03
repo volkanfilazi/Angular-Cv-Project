@@ -1,0 +1,36 @@
+<div id="resume"
+    class="observed-sections target mt-10 md:mt-40 flex h-full p-2 mb-10 md:p-0 flex-col justify-center w-full items-center relative sm:h-full gap-5 transition-all duration-200"
+    [ngClass]="{'dark' : darkTheme}">
+    <div class="flex md:mt-0 w-full items-center justify-center mt-5">
+          <h1
+            class="rounded-lg text-center p-1 font-bold text-[20px] md:text-[30px]"
+            >
+            My Resume</h1>
+      </div>
+    <div class="w-full md:w-4/5 p-1 md:p-5 gap-5 grid h-full grid-flow-row">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div *ngFor="let education of careerArray">
+          <h1 class="text-xl mb-5 font-bold">{{ education.mainTitle }}</h1>
+          <div *ngFor="let items of education.carrerItems" class="border-l-[1px] border-red-700 text-sm md:text-[16px]" [ngClass]="{'!border-white' : darkTheme}">
+            <div class="flex w-full justify-center">
+            <div class="w-10 h-10 bg-red-700 flex items-center justify-center" [ngClass]="{'!bg-yellow-400' : darkTheme,'!text-black' : darkTheme}"><span>{{ items.id }}</span></div>
+            <div class="bg-gray-500 p-2 flex items-center w-full"><p>{{ items.date }}</p></div>
+          </div>
+          <div class="p-5">
+            <div class="ml-5 justify-center gap-2 h-[110px] grid grid-cols-1">
+              <div class="font-bold h-1/4 flex items-center"><span>{{ items.title }}</span></div>
+              <div class="text-red-700 font-bold h-1/4 flex items-center" [ngClass]="{'!text-yellow-400' : darkTheme}"><span>{{ items.name }}</span></div>
+              <div class="text-gray-400 h-2/4 flex items-center"><span>{{ items.description }}</span></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    p{
+      margin: 0;
+    }
+  </style>

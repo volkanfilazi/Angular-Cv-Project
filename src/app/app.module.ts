@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolsComponent } from './tools/tools.component';
 import { LanguagesComponent } from './languages/languages.component';
 import { ProjectIconComponent } from './navbar/project-icon/project-icon.component';
+import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProjectIconComponent } from './navbar/project-icon/project-icon.compone
     ToolsComponent,
     LanguagesComponent,
     ProjectIconComponent,
+    ResumeComponent,
   ],
   imports: [
     BrowserModule,

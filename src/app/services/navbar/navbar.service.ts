@@ -16,7 +16,7 @@ export class NavbarService {
     },
     {
       name: 'Languages',
-      link: '#langguages'
+      link: '#languages'
     },
     {
       name: 'Resume',
