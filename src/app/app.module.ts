@@ -9,7 +9,6 @@ import { LanguagesComponent } from './languages/languages.component';
 import { ProjectIconComponent } from './navbar/project-icon/project-icon.component';
 import { ResumeComponent } from './resume/resume.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ProjectsFilterComponent } from './projects/projects-filter/projects-filter.component';
 import { FormsModule } from '@angular/forms';
 import { ProjectsBodyComponent } from './projects/projects-body/projects-body.component';
 import { ProjectsService } from './services/projects/projects.service';
@@ -23,7 +22,6 @@ import { ProjectsService } from './services/projects/projects.service';
     ProjectIconComponent,
     ResumeComponent,
     ProjectsComponent,
-    ProjectsFilterComponent,
     ProjectsBodyComponent,
   ],
   imports: [

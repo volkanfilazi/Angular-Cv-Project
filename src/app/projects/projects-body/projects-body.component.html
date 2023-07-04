@@ -1,11 +1,135 @@
-<div
-      class="w-full lg:w-4/5 md:p-0 text-white text-sm md:text-lg gap-2 md:h-1/2 grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
-      [ngClass]="{'lg:!w-full' : !copyProjects,'!flex' : copyProjects.length <= 0,'!items-center' : copyProjects.length <= 0,'!justify-center' : copyProjects.length <= 0}">
-      <div *ngIf="copyProjects.length > 0">
-        <div
-        *ngFor="let item of copyProjects; let index = index"
+<div class="flex flex-col md:flex-row">
+  <div class="h-full md:w-1/5 border-[1px] p-2">
+    <div class="flex justify-between cursor-pointer"
+      (click)="toggleAdvancedFilterOpenClose()">
+      <h1 class="text-yellow-400 font-bold">Advanced Filter</h1>
+      <svg *ngIf="advancedFilterOpenCloseToggle;else elseDownArrow" xmlns="http://www.w3.org/2000/svg" width="9"
+        height="16" viewBox="0 0 9 16">
+        <path fill="currentColor" d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+        <path fill="currentColor"
+          d="M8 7.5a.47.47 0 0 1-.35-.15L4.5 4.2L1.35 7.35c-.2.2-.51.2-.71 0c-.2-.2-.2-.51 0-.71l3.5-3.5c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+      </svg>
+      <ng-template #elseDownArrow>
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16">
+          <path fill="currentColor" d="M4.5 13c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+          <path fill="currentColor"
+            d="M4.5 14a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.15 3.15l3.15-3.15c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z" />
+        </svg>
+      </ng-template>
+    </div>
+  
+    <div *ngIf="advancedFilterOpenCloseToggle" class="flex flex-row justify-between md:justify-normal md:flex-col mt-2 ml-2">
+      <div class="space-y-2">
+        <div class="flex justify-between cursor-pointer"
+          (click)="toggleProgramingFilterOpenClose()">
+          <h2 class="text-yellow-400">Programming languages</h2>
+          <svg *ngIf="programingFilterOpenCloseToggle;else elseProgramDown" xmlns="http://www.w3.org/2000/svg" width="9"
+            height="16" viewBox="0 0 9 16">
+            <path fill="currentColor" d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+            <path fill="currentColor"
+              d="M8 7.5a.47.47 0 0 1-.35-.15L4.5 4.2L1.35 7.35c-.2.2-.51.2-.71 0c-.2-.2-.2-.51 0-.71l3.5-3.5c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+          </svg>
+          <ng-template #elseProgramDown>
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16">
+              <path fill="currentColor"
+                d="M4.5 13c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+              <path fill="currentColor"
+                d="M4.5 14a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.15 3.15l3.15-3.15c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z" />
+            </svg>
+          </ng-template>
+        </div>
+        <div *ngIf="programingFilterOpenCloseToggle" class="flex flex-col px-2 gap-2 text-white">
+          <div class="flex items-center gap-2">
+            <input [checked]="vueSelected" (change)="onVueSelectedChange($event)" class="w-4 h-4" id="vue.js" type="checkbox">
+            <label [htmlFor]="'vue.js'">Vue.js</label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input [checked]="typescriptSelected" (change)="onTypescriptSelectedChange($event)" class="w-4 h-4" id="typescript" type="checkbox">
+            <label [htmlFor]="'typescript'">Typescript</label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input [checked]="kotlinSelected" (change)="onKotlinSelectedChange($event)" class="w-4 h-4" id="kotlin" type="checkbox">
+            <label [htmlFor]="'kotlin'">Kotlin</label>
+          </div>
+        </div>
+      </div>
+  
+      <div class="space-y-2 mt-2">
+        <div class="flex justify-between cursor-pointer" (click)="toggleHostingFilterOpenClose()">
+          <h2 class="text-yellow-400">Hosting</h2>
+          <svg *ngIf="hostingFilterOpenCloseToggle;else elseHostingDown" xmlns="http://www.w3.org/2000/svg" width="9"
+            height="16" viewBox="0 0 9 16">
+            <path fill="currentColor" d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+            <path fill="currentColor"
+              d="M8 7.5a.47.47 0 0 1-.35-.15L4.5 4.2L1.35 7.35c-.2.2-.51.2-.71 0c-.2-.2-.2-.51 0-.71l3.5-3.5c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+          </svg>
+          <ng-template #elseHostingDown>
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16">
+              <path fill="currentColor"
+                d="M4.5 13c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+              <path fill="currentColor"
+                d="M4.5 14a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.15 3.15l3.15-3.15c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z" />
+            </svg>
+          </ng-template>
+        </div>
+        <div *ngIf="hostingFilterOpenCloseToggle" class="flex flex-col px-2 gap-2 text-white">
+          <div class="flex items-center gap-2">
+            <input (change)="onHostingSelectedChange('online')" class="w-4 h-4" id="online" value="Online" type="radio">
+            <label for="online">Online</label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input class="w-4 h-4" id="offline" value="Offline" type="radio"
+            (change)="onHostingSelectedChange('offline')">
+            <label for="offline">Offline</label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input class="w-4 h-4" id="coming soon" value="Coming Soon" type="radio"
+            (change)="onHostingSelectedChange('coming soon')">
+            <label for="coming soon">Coming Soon</label>
+          </div>
+        </div>
+      </div>
+  
+      <div class="space-y-2 mt-2">
+        <div class="flex justify-between cursor-pointer" (click)="toggleRatingFilterOpenClose()">
+          <h2 class="text-yellow-400">Rating</h2>
+          <svg *ngIf="ratingFilterOpenCloseToggle;else elseRatingDown" xmlns="http://www.w3.org/2000/svg" width="9"
+            height="16" viewBox="0 0 9 16">
+            <path fill="currentColor" d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+            <path fill="currentColor"
+              d="M8 7.5a.47.47 0 0 1-.35-.15L4.5 4.2L1.35 7.35c-.2.2-.51.2-.71 0c-.2-.2-.2-.51 0-.71l3.5-3.5c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+          </svg>
+          <ng-template #elseRatingDown>
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16">
+              <path fill="currentColor"
+                d="M4.5 13c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+              <path fill="currentColor"
+                d="M4.5 14a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.15 3.15l3.15-3.15c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z" />
+            </svg>
+          </ng-template>
+        </div>
+        <div *ngIf="ratingFilterOpenCloseToggle" class="flex flex-col px-2 gap-2 text-white">
+          <div class="flex items-center gap-2">
+            <input class="w-4 h-4" id="high" value="High rating" type="radio"
+              (change)="onRatingSelectedChange('high')">
+            <label for="high">High rating</label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input (change)="onRatingSelectedChange('low')" class="w-4 h-4" id="low" value="Low rating" type="radio">
+            <label for="low">Low rating</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <div class="md:p-0 md:w-4/5 text-white "
+    [ngClass]="{'lg:!w-full' : !copyProjects,'!flex' : copyProjects.length <= 0,'!items-center' : copyProjects.length <= 0,'!justify-center' : copyProjects.length <= 0}">
+    <div class="text-sm md:text-lg gap-2 md:h-1/2 grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+      *ngIf="copyProjects.length > 0; else elseCopyProjectLength">
+      <div *ngFor="let item of copyProjects; let index = index; trackBy: trackByFn"
         class="w-full group border-[1px] flex flex-col md:h-[500px] transition-all duration-300 hover:border-yellow-400">
-
+  
         <div class="h-2/5 sm:h-1/3 flex items-center justify-center flex-col gap-5">
           <div class="flex w-full items-center gap-1 px-2 justify-between">
             <div class="flex w-full items-center gap-1 px-2">
@@ -15,14 +139,21 @@
               </div>
             </div>
             <div class="relative">
-              <p :class="{'!text-black' : darkmode}">{{ like[index] ? item.numberOfLikes + 1 : item.numberOfLikes }}
+              <p>{{ like[index] ? item.numberOfLikes + 1 : item.numberOfLikes }}
               </p>
             </div>
-            <svg (click)="likeUpdate(index)" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><mask id="ipSLike0"><path fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.987 10.987 0 0 0 15 8Z"/></mask><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSLike0)"/></svg>
+            <svg (click)="likeUpdate(index)" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+              viewBox="0 0 48 48">
+              <mask id="ipSLike0">
+                <path fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
+                  d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.987 10.987 0 0 0 15 8Z" />
+              </mask>
+              <path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSLike0)" />
+            </svg>
           </div>
           <h1 class="transition-all duration-300 group-hover:text-yellow-400 text-center text-xl">~ {{ item.name }} ~</h1>
         </div>
-
+  
         <div class="h-2/5 sm:h-2/3 md:justify-center flex flex-col p-2">
           <p class="text-yellow-400">Project Thema : <span class="text-white">{{ item.thema }}</span></p>
           <p class="text-yellow-400">Languages and Frameworks :
@@ -33,26 +164,30 @@
           </div>
           <p class="text-yellow-400">Used Packages : <span class="text-white">{{ item.packages }}</span></p>
         </div>
-
+  
         <div class="flex h-1/5 justify-center mt-5 md:mt-0 items-center md:mb-0">
-          <button v-if="items.name === 'Shop'">Live Preview</button>
-          <button v-if="items.name === 'Intelligence Square'">Live Preview
+          <button *ngIf="item.name === 'Shop'">Live Preview</button>
+          <button *ngIf="item.name === 'Intelligence Square'">Live Preview
           </button>
-
+  
           <a href="https://github.com/volkanfilazi/DeskBookingSystem" target="_blank">
-            <button v-if="items.name === 'Desk Booking System'">Github</button>
+            <button *ngIf="item.name === 'Desk Booking System'">Github</button>
           </a>
-          <button v-if="items.name === 'Second Cv'" disabled>Coming Soon
+          <button *ngIf="item.name === 'Second Cv'" disabled>Coming Soon
           </button>
-          <button v-if="items.name === 'Encryption'" disabled>Coming Soon</button>
+          <button *ngIf="item.name === 'Encryption'" disabled>Coming Soon</button>
           <a href="https://github.com/volkanfilazi/Android-Kotlin-Codagram" target="_blank">
-            <button v-if="items.name === 'Codagram'">Github</button>
+            <button *ngIf="item.name === 'Codagram'">Github</button>
           </a>
         </div>
       </div>
-      </div>
-      <div v-else class="w-full flex flex-col items-center lg:w-4/5 md:p-0 text-white text-sm md:text-lg gap-2">
-        <p class="w-full text-center">Project not found</p>
-        <p class="w-full text-center">Check the selected filters or try other search criteria.</p>
-      </div>
     </div>
+    <ng-template #elseCopyProjectLength
+      class="w-full flex flex-col items-center lg:w-4/5 md:p-0 text-white text-sm md:text-lg gap-2">
+      <p class="w-full text-center">Project not found</p>
+      <p class="w-full text-center">Check the selected filters or try other search criteria.</p>
+    </ng-template>
+  </div>
+
+
+</div>
