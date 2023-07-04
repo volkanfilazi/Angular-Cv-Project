@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { isNgTemplate } from '@angular/compiler';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class ProjectsService {
   hostingFilterOpenCloseToggle: boolean = true
   ratingFilterOpenCloseToggle: boolean = true
 
-   projectsArray = [
+  projectsArray = [
     {
       status: 'Online',
       liked: false,
@@ -78,8 +79,53 @@ export class ProjectsService {
       packages: 'retrofit, firebase'
     }
   ]
+  vueFilter() {
+    if (this.vue) {
+      this.copyProjects = this.projectsArray.filter(item => item.frameworks.includes('Vue.js'));
+    }
+    else if(!this.vue) {
+      this.copyProjects = this.projectsArray
+    }
+    else if(this.typescript){
+      this.typescriptFilter()
+    }
+    else if(this.kotlin) {
+      this.kotlinFilter()
+    }
+  }
+
+   kotlinFilter() { 
+    if (this.kotlin) {
+      this.copyProjects = this.projectsArray.filter(item => item.frameworks.includes('Kotlin'));
+    } 
+    else if (!this.kotlin) {
+      this.copyProjects = this.projectsArray
+    }
+    else if (this.vue) {
+      this.vueFilter()
+    }
+    else if(this.typescript){
+      this.typescriptFilter()
+    }
+  }
+
+  typescriptFilter() {
+    if (this.typescript) {
+      this.copyProjects = this.projectsArray.filter(item => item.frameworks.includes('Typescript'));
+    } 
+    else if (this.vue) {
+      this.vueFilter()
+    }
+    else if (this.kotlin) {
+      this.kotlinFilter()
+    }
+    else if (!this.typescript) {      
+      this.copyProjects = this.projectsArray
+    }
+  }
 
   constructor() {
-    this.copyProjects = [...this.projectsArray];
-   }
+    this.copyProjects = this.projectsArray
+  }
 }
+
