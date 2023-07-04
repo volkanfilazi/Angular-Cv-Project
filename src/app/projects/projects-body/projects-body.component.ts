@@ -86,6 +86,7 @@ export class ProjectsBodyComponent {
 
   onHostingSelectedChange(value: string) {
     this.projectsService.hostingSelected = value;
+    this.projectsService.selectedHosting()
   }
 
   get ratingSelected(){
@@ -94,6 +95,7 @@ export class ProjectsBodyComponent {
 
   onRatingSelectedChange(value: string) {
     this.projectsService.ratingSelected = value;
+    this.projectsService.selectedRating()
   }
  
   trackByFn(index: number, item: any): any {

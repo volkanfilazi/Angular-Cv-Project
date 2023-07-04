@@ -72,23 +72,27 @@
             </svg>
           </ng-template>
         </div>
+
+
         <div *ngIf="hostingFilterOpenCloseToggle" class="flex flex-col px-2 gap-2 text-white">
           <div class="flex items-center gap-2">
-            <input (change)="onHostingSelectedChange('online')" class="w-4 h-4" id="online" value="Online" type="radio">
+            <input (change)="onHostingSelectedChange('Online')" class="w-4 h-4" name="hostingFilter" id="online" value="Online" type="radio">
             <label for="online">Online</label>
           </div>
           <div class="flex items-center gap-2">
-            <input class="w-4 h-4" id="offline" value="Offline" type="radio"
-            (change)="onHostingSelectedChange('offline')">
+            <input class="w-4 h-4" id="offline" name="hostingFilter" value="Offline" type="radio"
+            (change)="onHostingSelectedChange('Offline')">
             <label for="offline">Offline</label>
           </div>
           <div class="flex items-center gap-2">
-            <input class="w-4 h-4" id="coming soon" value="Coming Soon" type="radio"
-            (change)="onHostingSelectedChange('coming soon')">
+            <input class="w-4 h-4" id="coming soon" name="hostingFilter" value="Coming Soon" type="radio"
+            (change)="onHostingSelectedChange('Continues')">
             <label for="coming soon">Coming Soon</label>
           </div>
         </div>
       </div>
+
+
   
       <div class="space-y-2 mt-2">
         <div class="flex justify-between cursor-pointer" (click)="toggleRatingFilterOpenClose()">
@@ -110,12 +114,12 @@
         </div>
         <div *ngIf="ratingFilterOpenCloseToggle" class="flex flex-col px-2 gap-2 text-white">
           <div class="flex items-center gap-2">
-            <input class="w-4 h-4" id="high" value="High rating" type="radio"
-              (change)="onRatingSelectedChange('high')">
+            <input class="w-4 h-4" id="high" name="ratingFilter" value="High rating" type="radio"
+              (change)="onRatingSelectedChange('High rating')">
             <label for="high">High rating</label>
           </div>
           <div class="flex items-center gap-2">
-            <input (change)="onRatingSelectedChange('low')" class="w-4 h-4" id="low" value="Low rating" type="radio">
+            <input (change)="onRatingSelectedChange('Low rating')" class="w-4 h-4" id="low" name="ratingFilter" value="Low rating" type="radio">
             <label for="low">Low rating</label>
           </div>
         </div>

@@ -92,6 +92,9 @@ export class ProjectsService {
     else if(this.kotlin) {
       this.kotlinFilter()
     }
+    else if (this.hostingSelected.length > 0) {
+      this.selectedHosting()
+    }
   }
 
    kotlinFilter() { 
@@ -106,6 +109,9 @@ export class ProjectsService {
     }
     else if(this.typescript){
       this.typescriptFilter()
+    }
+    else if (this.hostingSelected.length > 0) {
+      this.selectedHosting()
     }
   }
 
@@ -122,8 +128,56 @@ export class ProjectsService {
     else if (!this.typescript) {      
       this.copyProjects = this.projectsArray
     }
+    else if (this.hostingSelected.length > 0) {
+      this.selectedHosting()
+    }
   }
 
+   selectedHosting() {
+    this.copyProjects = this.projectsArray; // Tüm projeleri kopyala
+
+    if (this.hostingSelected === 'Online') {
+      this.copyProjects = this.copyProjects.filter((item) => item.status === 'Online')
+    }
+    if (this.hostingSelected === 'Offline') {
+      this.copyProjects = this.copyProjects.filter((item) => item.status === 'Offline')
+    }
+    if (this.hostingSelected === 'Continues') {
+      this.copyProjects = this.copyProjects.filter((item) => item.status === 'Continues')
+    }
+  }
+
+
+  selectedRating(){
+    if (this.ratingSelected === 'High rating') {
+      this.copyProjects = this.copyProjects.sort((a, b) => {
+        const ratingA = parseFloat(a.numberOfLikes)
+        const ratingB = parseFloat(b.numberOfLikes)
+
+        if (ratingA < ratingB) {
+          return 1
+        }
+        if (ratingA > ratingB) {
+          return -1
+        }
+        return 0
+      })
+    }
+    if (this.ratingSelected === 'Low rating') {
+      this.copyProjects = this.copyProjects.sort((a, b) => {
+        const ratingA = parseFloat(a.numberOfLikes)
+        const ratingB = parseFloat(b.numberOfLikes)
+
+        if (ratingA > ratingB) {
+          return 1
+        }
+        if (ratingA < ratingB) {
+          return -1
+        }
+        return 0
+      })
+    }
+  }
   constructor() {
     this.copyProjects = this.projectsArray
   }
