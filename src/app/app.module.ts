@@ -12,6 +12,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { FormsModule } from '@angular/forms';
 import { ProjectsBodyComponent } from './projects/projects-body/projects-body.component';
 import { ProjectsService } from './services/projects/projects.service';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { ProjectsService } from './services/projects/projects.service';
     ResumeComponent,
     ProjectsComponent,
     ProjectsBodyComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
