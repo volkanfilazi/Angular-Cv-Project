@@ -2,14 +2,14 @@
   class="observed-sections target bg-[#ecedef] flex flex-col justify-center w-full items-center relative gap-5 transition-all duration-200"
   [ngClass]="{'dark' : darkTheme}">
   <div class="flex md:mt-0 w-full items-center justify-center mt-5">
-    <h1 class=" rounded-lg text-center p-1 font-bold text-[20px] md:text-[30px]">Toolasdas</h1>
+    <h1 class=" rounded-lg text-center p-1 font-bold text-[20px] md:text-[30px]">Tools</h1>
   </div>
   <div class="w-full md:w-4/5 p-2">
     <div
       class="border-[1px] border-black p-5 gap-5 grid grid-flow-row grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5" [ngClass]="{'!border-white' : darkTheme}">
       <div *ngFor="let tool of toolsArray"
         class="flex gap-2 p-1 justify-center hover:text-yellow-400 rounded-md font-bold items-center transition-all duration-500 hover:bg-black border-[1px] border-red-700"
-        [ngClass]="{'!border-yellow-400' : darkTheme}">
+        [ngClass]="{'!border-yellow-400' : darkTheme, 'hover:!bg-yellow-400' : darkTheme, 'hover:!text-black' : darkTheme}">
           <p class="text-center text-lg w-2/3">{{ tool.toolName }}</p>
       </div>
     </div>
