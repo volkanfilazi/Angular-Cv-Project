@@ -1,8 +1,6 @@
 import { Component, ChangeDetectorRef, Input  } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects/projects.service';
 
-
-
 @Component({
   selector: 'app-projects-body',
   templateUrl: './projects-body.component.html',
