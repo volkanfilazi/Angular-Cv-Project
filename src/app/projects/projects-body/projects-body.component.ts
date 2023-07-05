@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef  } from '@angular/core';
+import { Component, ChangeDetectorRef, Input  } from '@angular/core';
 import { ProjectsService } from 'src/app/services/projects/projects.service';
 
 
@@ -11,6 +11,8 @@ import { ProjectsService } from 'src/app/services/projects/projects.service';
 export class ProjectsBodyComponent {
 
   constructor(private projectsService: ProjectsService, private changeDetectorRef: ChangeDetectorRef) { }
+  @Input() darkTheme: boolean | undefined
+
   like: boolean[] = new Array(this.projectsService.projectsArray.length).fill(false);
 
 
