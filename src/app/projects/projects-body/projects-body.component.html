@@ -1,7 +1,7 @@
 <div class="flex flex-col md:flex-row gap-1 mb-5 text-black" [ngClass]="{'dark' : darkTheme}">
   <div class="h-full md:w-1/5 border-[1px] border-black p-2" [ngClass]="{'!border-white' : darkTheme}">
     <div class="flex justify-between cursor-pointer" (click)="toggleAdvancedFilterOpenClose()">
-      <h1 class="text-yellow-400 font-bold">Advanced Filter</h1>
+      <h1 class="text-red-700 font-bold" [ngClass]="{'text-yellow-400' : darkTheme}">Advanced Filter</h1>
       <svg *ngIf="advancedFilterOpenCloseToggle;else elseDownArrow" xmlns="http://www.w3.org/2000/svg" width="9"
         height="16" viewBox="0 0 9 16">
         <path fill="currentColor" d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
@@ -21,7 +21,7 @@
       class="flex flex-row justify-between md:justify-normal md:flex-col mt-2 ml-2">
       <div class="space-y-2">
         <div class="flex justify-between cursor-pointer" (click)="toggleProgramingFilterOpenClose()">
-          <h2 class="text-yellow-400">Programming languages</h2>
+          <h2 class="text-red-700" [ngClass]="{'text-yellow-400' : darkTheme}">Programming languages</h2>
           <svg *ngIf="programingFilterOpenCloseToggle;else elseProgramDown" xmlns="http://www.w3.org/2000/svg" width="9"
             height="16" viewBox="0 0 9 16">
             <path fill="currentColor"
@@ -60,7 +60,7 @@
 
       <div class="space-y-2 mt-2">
         <div class="flex justify-between cursor-pointer" (click)="toggleHostingFilterOpenClose()">
-          <h2 class="text-yellow-400">Hosting</h2>
+          <h2 class="text-red-700" [ngClass]="{'text-yellow-400' : darkTheme}">Hosting</h2>
           <svg *ngIf="hostingFilterOpenCloseToggle;else elseHostingDown" xmlns="http://www.w3.org/2000/svg" width="9"
             height="16" viewBox="0 0 9 16">
             <path fill="currentColor"
@@ -102,7 +102,7 @@
 
       <div class="space-y-2 mt-2">
         <div class="flex justify-between cursor-pointer" (click)="toggleRatingFilterOpenClose()">
-          <h2 class="text-yellow-400">Rating</h2>
+          <h2 class="text-red-700" [ngClass]="{'text-yellow-400' : darkTheme}">Rating</h2>
           <svg *ngIf="ratingFilterOpenCloseToggle;else elseRatingDown" xmlns="http://www.w3.org/2000/svg" width="9"
             height="16" viewBox="0 0 9 16">
             <path fill="currentColor"
@@ -156,14 +156,9 @@
               <p>{{ like[index] ? item.numberOfLikes + 1 : item.numberOfLikes }}
               </p>
             </div>
-            <svg (click)="likeUpdate(index)" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-              viewBox="0 0 48 48">
-              <mask id="ipSLike0">
-                <path fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
-                  d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.987 10.987 0 0 0 15 8Z" />
-              </mask>
-              <path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSLike0)" />
-            </svg>
+            
+            <svg (click)="likeUpdate(index)" class='fontawesomesvg' fill="black" width="35" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" [ngClass]="{'!fill-white' : darkTheme , '!fill-red-700' : like[index]}"/></svg>
+
           </div>
           <h1 class="transition-all duration-300 group-hover:text-red-700 text-center text-xl"
             [ngClass]="{'group-hover:!text-yellow-400' : darkTheme}">~ {{ item.name }} ~</h1>
@@ -238,3 +233,5 @@
     pointer-events: none
   }
 </style>
+
+
