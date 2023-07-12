@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">volkanfilazi-resume</string>
+    <string name="title_activity_main">volkanfilazi-resume</string>
+    <string name="package_name">com.volkanfilaziresume.app</string>
+    <string name="custom_url_scheme">com.volkanfilaziresume.app</string>
+</resources>
