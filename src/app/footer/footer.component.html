@@ -1,9 +1,11 @@
 <div id="navbar" [ngClass]="{'dark' : darkTheme, 'border-white' : darkTheme}"
-  class="flex w-full z-[100] min-h-[35px] items-center border-t-[1px] border-red-700 bg-[#ecedef] md:z-40 justify-center font-bold">
+  class="flex w-full z-[100] min-h-[35px] items-center border-b-[1px] border-red-700 bg-[#ecedef] md:z-40 justify-center font-bold">
   <div class="p-1 w-full md:w-4/5 md:pb-2 md:pt-2 hidden md:flex justify-between items-center relative">
     <app-project-icon [darkTheme]="darkTheme"></app-project-icon>
+    <ul class="hidden md:flex gap-2 items-center">
+      <h2>Created By Volkan Filazi</h2>
+    </ul>
   </div>
-  <h2>Created By Volkan Filazi</h2>
 </div>
 
 <style>

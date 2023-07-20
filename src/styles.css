@@ -15,3 +15,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 p {
   margin: 0;
 }
+
+@layer components {
+  .filter-selected-elements-remove {
+    @apply border-r-[1px] border-y-[1px] rounded-r-md p-1 cursor-pointer border-black transition-all duration-300 hover:bg-red-500
+  }
+
+}
