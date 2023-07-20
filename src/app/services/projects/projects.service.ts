@@ -81,7 +81,7 @@ export class ProjectsService {
   ]
   vueFilter() {
     if (this.vue) {
-      this.copyProjects = this.projectsArray.filter(item => item.frameworks.includes('Vue.js'));
+      this.copyProjects = this.projectsArray.filter(item => item.frameworks.includes('Vue.js'));      
     }
     else if(!this.vue) {
       this.copyProjects = this.projectsArray
@@ -134,7 +134,7 @@ export class ProjectsService {
   }
 
    selectedHosting() {
-    this.copyProjects = this.projectsArray; // Tüm projeleri kopyala
+    this.copyProjects = this.projectsArray;
 
     if (this.hostingSelected === 'Online') {
       this.copyProjects = this.copyProjects.filter((item) => item.status === 'Online')
@@ -149,6 +149,8 @@ export class ProjectsService {
 
 
   selectedRating(){
+    this.copyProjects = this.projectsArray;
+
     if (this.ratingSelected === 'High rating') {
       this.copyProjects = this.copyProjects.sort((a, b) => {
         const ratingA = parseFloat(a.numberOfLikes)
@@ -181,5 +183,31 @@ export class ProjectsService {
   constructor() {
     this.copyProjects = this.projectsArray
   }
+
+  unselectVueFromFilterBar() : void{
+    this.vue = false
+    this.vueFilter()
+  }
+
+  unselectTypescriptFromFilterBar() : void{
+    this.typescript = false
+    this.typescriptFilter()
+  }
+
+  unselectKotlinFromFilterBar() : void{
+    this.kotlin = false
+    this.kotlinFilter()
+  }
+
+  unselectHostingFromFilterBar() : void {
+    this.hostingSelected = ''
+    this.selectedHosting()
+  }
+
+  unselectRatingFromFilterBar() : void {
+    this.ratingSelected = ''
+    this.selectedRating()
+  }
+
 }
 

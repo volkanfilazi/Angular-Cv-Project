@@ -14,9 +14,34 @@ export class ProjectsBodyComponent {
   
   like: boolean[] = new Array(this.projectsService.projectsArray.length).fill(false);
 
+  get hostingSelectedValue(){
+    return this.projectsService.hostingSelected
+  }
+  
+  get ratingSelectedValue(){
+    return this.projectsService.ratingSelected
+  }
 
   get advancedFilterOpenCloseToggle(){
     return this.projectsService.advancedFilterOpenCloseToggle
+  }
+
+  get unselectVue(){
+    return this.projectsService.unselectVueFromFilterBar()
+  }
+  get unselectTypescript(){
+    return this.projectsService.unselectTypescriptFromFilterBar()
+  }
+  get unselectKotlin(){
+    return this.projectsService.unselectKotlinFromFilterBar()
+  }
+
+  get unselectHosting(){
+    return this.projectsService.unselectHostingFromFilterBar()
+  }
+
+  get unselectRating() {
+    return this.projectsService.unselectRatingFromFilterBar()
   }
 
   toggleAdvancedFilterOpenClose() {
