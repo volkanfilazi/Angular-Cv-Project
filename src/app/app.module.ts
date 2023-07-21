@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { ProjectsBodyComponent } from './projects/projects-body/projects-body.component';
 import { ProjectsService } from './services/projects/projects.service';
 import { FooterComponent } from './footer/footer.component';
+import { FilterBarComponent } from './projects/filter-bar/filter-bar.component';
+import { FilterMainComponent } from './projects/filter-main/filter-main.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { FooterComponent } from './footer/footer.component';
     ProjectsComponent,
     ProjectsBodyComponent,
     FooterComponent,
+    FilterBarComponent,
+    FilterMainComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+<div class="w-full flex items-center border-[1px] md:h-14 p-2 gap-2 border-white mb-2 flex-wrap">Selected Filters :
+  <div class="flex" *ngIf="vueSelected">
+    <div class="border-[1px] p-1 border-black rounded-l-md" [ngClass]="{'border-white' : darkTheme }">Vue</div>
+    <div (click)="unselectVue" class="filter-selected-elements-remove" [ngClass]="{'border-white' : darkTheme }">X</div>
+  </div>
+  <div class="flex" *ngIf="typescriptSelected">
+    <div class="border-[1px] p-1 border-black rounded-l-md" [ngClass]="{'border-white' : darkTheme }">Typescript</div>
+    <div (click)="unselectTypescript" class="filter-selected-elements-remove" [ngClass]="{'border-white' : darkTheme }">X</div>
+  </div>
+  <div class="flex" *ngIf="kotlinSelected">
+    <div class="border-[1px] p-1 border-black rounded-l-md" [ngClass]="{'border-white' : darkTheme }">Kotlin</div>
+    <div (click)="unselectKotlin" class="filter-selected-elements-remove" [ngClass]="{'border-white' : darkTheme }">X</div>
+  </div>
+  <div class="flex" *ngIf="hostingSelected">
+    <div class="border-[1px] p-1 border-black rounded-l-md" [ngClass]="{'border-white' : darkTheme }">{{ hostingSelected }}</div>
+    <div (click)="unselectHosting" class="filter-selected-elements-remove" [ngClass]="{'border-white' : darkTheme }">X</div>
+  </div>
+  <div class="flex" *ngIf="ratingSelected">
+    <div class="border-[1px] p-1 border-black rounded-l-md" [ngClass]="{'border-white' : darkTheme }">{{ ratingSelected }}</div>
+    <div (click)="unselectRating" class="filter-selected-elements-remove" [ngClass]="{'border-white' : darkTheme }">X</div>
+  </div>
+</div>
