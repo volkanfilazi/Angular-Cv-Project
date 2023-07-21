@@ -1,1 +1,9 @@
-  <app-projects-body [darkTheme]="darkTheme"></app-projects-body>
+  <app-filter-bar [darkTheme]="darkTheme"></app-filter-bar>
+  <div class="flex flex-col md:flex-row gap-1 mb-5 text-black" [ngClass]="{'dark' : darkTheme}">
+    <div class="h-full md:w-1/5 border-[1px] border-black p-2" [ngClass]="{'!border-white' : darkTheme}">
+      <app-filter-main [darkTheme]="darkTheme"></app-filter-main>
+    </div>
+    <div class="md:p-0 md:w-4/5">
+      <app-projects-body [darkTheme]="darkTheme"></app-projects-body>
+    </div>
+  </div>
