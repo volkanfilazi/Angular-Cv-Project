@@ -1,0 +1,135 @@
+  <div class="flex justify-between cursor-pointer" (click)="toggleAdvancedFilterOpenClose()">
+    <h1 class="text-red-700 font-bold" [ngClass]="{'text-yellow-400' : darkTheme}">Advanced Filter</h1>
+    <svg *ngIf="advancedFilterOpenCloseToggle;else elseDownArrow" xmlns="http://www.w3.org/2000/svg" width="9"
+      height="16" viewBox="0 0 9 16">
+      <path fill="currentColor" d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+      <path fill="currentColor"
+        d="M8 7.5a.47.47 0 0 1-.35-.15L4.5 4.2L1.35 7.35c-.2.2-.51.2-.71 0c-.2-.2-.2-.51 0-.71l3.5-3.5c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+    </svg>
+    <ng-template #elseDownArrow>
+      <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16">
+        <path fill="currentColor" d="M4.5 13c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+        <path fill="currentColor"
+          d="M4.5 14a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.15 3.15l3.15-3.15c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z" />
+      </svg>
+    </ng-template>
+  </div>
+
+  <div *ngIf="advancedFilterOpenCloseToggle"
+    class="flex flex-row justify-between md:justify-normal md:flex-col mt-2 ml-2">
+    <div class="space-y-2">
+      <div class="flex justify-between cursor-pointer" (click)="toggleProgramingFilterOpenClose()">
+        <h2 class="text-red-700" [ngClass]="{'text-yellow-400' : darkTheme}">Programming languages</h2>
+        <svg *ngIf="programingFilterOpenCloseToggle;else elseProgramDown" xmlns="http://www.w3.org/2000/svg" width="9"
+          height="16" viewBox="0 0 9 16">
+          <path fill="currentColor"
+            d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+          <path fill="currentColor"
+            d="M8 7.5a.47.47 0 0 1-.35-.15L4.5 4.2L1.35 7.35c-.2.2-.51.2-.71 0c-.2-.2-.2-.51 0-.71l3.5-3.5c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+        </svg>
+        <ng-template #elseProgramDown>
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16">
+            <path fill="currentColor"
+              d="M4.5 13c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+            <path fill="currentColor"
+              d="M4.5 14a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.15 3.15l3.15-3.15c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z" />
+          </svg>
+        </ng-template>
+      </div>
+      <div *ngIf="programingFilterOpenCloseToggle" class="flex flex-col px-2 gap-2 text-black"
+        [ngClass]="{'!text-white' : darkTheme}">
+        <div class="flex items-center gap-2">
+          <input [checked]="vueSelected" (change)="onVueSelectedChange($event)" class="w-4 h-4" id="vue.js"
+            type="checkbox">
+          <label [htmlFor]="'vue.js'">Vue.js</label>
+        </div>
+        <div class="flex items-center gap-2">
+          <input [checked]="typescriptSelected" (change)="onTypescriptSelectedChange($event)" class="w-4 h-4"
+            id="typescript" type="checkbox">
+          <label [htmlFor]="'typescript'">Typescript</label>
+        </div>
+        <div class="flex items-center gap-2">
+          <input [checked]="kotlinSelected" (change)="onKotlinSelectedChange($event)" class="w-4 h-4" id="kotlin"
+            type="checkbox">
+          <label [htmlFor]="'kotlin'">Kotlin</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-2 mt-2">
+      <div class="flex justify-between cursor-pointer" (click)="toggleHostingFilterOpenClose()">
+        <h2 class="text-red-700" [ngClass]="{'text-yellow-400' : darkTheme}">Hosting</h2>
+        <svg *ngIf="hostingFilterOpenCloseToggle;else elseHostingDown" xmlns="http://www.w3.org/2000/svg" width="9"
+          height="16" viewBox="0 0 9 16">
+          <path fill="currentColor"
+            d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+          <path fill="currentColor"
+            d="M8 7.5a.47.47 0 0 1-.35-.15L4.5 4.2L1.35 7.35c-.2.2-.51.2-.71 0c-.2-.2-.2-.51 0-.71l3.5-3.5c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+        </svg>
+        <ng-template #elseHostingDown>
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16">
+            <path fill="currentColor"
+              d="M4.5 13c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+            <path fill="currentColor"
+              d="M4.5 14a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.15 3.15l3.15-3.15c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z" />
+          </svg>
+        </ng-template>
+      </div>
+
+
+      <div *ngIf="hostingFilterOpenCloseToggle" class="flex flex-col px-2 gap-2 text-black"
+        [ngClass]="{'!text-white' : darkTheme}">
+        <div class="flex items-center gap-2">
+          <input (change)="onHostingSelectedChange('Online')" class="w-4 h-4" name="hostingFilter" id="online"
+            value="Online" type="radio">
+          <label for="online">Online</label>
+        </div>
+        <div class="flex items-center gap-2">
+          <input class="w-4 h-4" id="offline" name="hostingFilter" value="Offline" type="radio"
+            (change)="onHostingSelectedChange('Offline')">
+          <label for="offline">Offline</label>
+        </div>
+        <div class="flex items-center gap-2">
+          <input class="w-4 h-4" id="coming soon" name="hostingFilter" value="Coming Soon" type="radio"
+            (change)="onHostingSelectedChange('Continues')">
+          <label for="coming soon">Coming Soon</label>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="space-y-2 mt-2">
+      <div class="flex justify-between cursor-pointer" (click)="toggleRatingFilterOpenClose()">
+        <h2 class="text-red-700" [ngClass]="{'text-yellow-400' : darkTheme}">Rating</h2>
+        <svg *ngIf="ratingFilterOpenCloseToggle;else elseRatingDown" xmlns="http://www.w3.org/2000/svg" width="9"
+          height="16" viewBox="0 0 9 16">
+          <path fill="currentColor"
+            d="M4.5 14c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+          <path fill="currentColor"
+            d="M8 7.5a.47.47 0 0 1-.35-.15L4.5 4.2L1.35 7.35c-.2.2-.51.2-.71 0c-.2-.2-.2-.51 0-.71l3.5-3.5c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z" />
+        </svg>
+        <ng-template #elseRatingDown>
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16">
+            <path fill="currentColor"
+              d="M4.5 13c-.28 0-.5-.22-.5-.5v-9c0-.28.22-.5.5-.5s.5.22.5.5v9c0 .28-.22.5-.5.5Z" />
+            <path fill="currentColor"
+              d="M4.5 14a.47.47 0 0 1-.35-.15l-3.5-3.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.15 3.15l3.15-3.15c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z" />
+          </svg>
+        </ng-template>
+      </div>
+      <div *ngIf="ratingFilterOpenCloseToggle" class="flex flex-col px-2 gap-2 text-black"
+        [ngClass]="{'!text-white' : darkTheme}">
+        <div class="flex items-center gap-2">
+          <input class="w-4 h-4" id="high" name="ratingFilter" value="High rating" type="radio"
+            (change)="onRatingSelectedChange('High rating')">
+          <label for="high">High rating</label>
+        </div>
+        <div class="flex items-center gap-2">
+          <input (change)="onRatingSelectedChange('Low rating')" class="w-4 h-4" id="low" name="ratingFilter"
+            value="Low rating" type="radio">
+          <label for="low">Low rating</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
