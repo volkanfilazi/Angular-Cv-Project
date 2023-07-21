@@ -26,7 +26,8 @@ export class ProjectsService {
       image: 'guidance:shop',
       thema: 'Shop, Order, Filter System, Checkout, Networking',
       frameworks: ['Vue.js', 'HTML', 'CSS', 'Tailwind', 'Typescript'],
-      packages: '@iconify/vue, axios'
+      packages: '@iconify/vue, axios',
+      path: 'https://www.volkanfilazi.at/shop'
     },
     {
       status: 'Online',
@@ -36,7 +37,8 @@ export class ProjectsService {
       image: 'carbon:ibm-watson-knowledge-studio',
       thema: 'Knowledge Competition, Multiple categories, Local Backend',
       frameworks: ['Vue.js', 'HTML', 'CSS', 'Tailwind'],
-      packages: '@iconify/vue'
+      packages: '@iconify/vue',
+      path: 'https://www.volkanfilazi.at/intelligencesquare'
     },
     {
       status: 'Offline',
@@ -46,7 +48,9 @@ export class ProjectsService {
       image: 'tabler:brand-booking',
       thema: 'Login System, Desk Reservation, Admin Panel, Offices , Desks, Users',
       frameworks: ['Vue.js', 'HTML', 'CSS', 'Tailwind'],
-      packages: '@iconify/vue, jwt, decode, axios, vite, vueuse-usestorage, iconify'
+      packages: '@iconify/vue, jwt, decode, axios, vite, vueuse-usestorage, iconify',
+      path: 'https://github.com/volkanfilazi/DeskBookingSystem'
+      
     },
     {
       status: 'Continues',
@@ -56,17 +60,19 @@ export class ProjectsService {
       image: 'carbon:ibm-cloud-hyper-protect-crypto-services',
       thema: 'Strengthen Passwords',
       frameworks: ['Vue.js', 'HTML', 'CSS', 'Tailwind'],
-      packages: '@iconify/vue, jwt, decode'
+      packages: '@iconify/vue, jwt, decode',
+      path: ''
     },
     {
-      status: 'Continues',
+      status: 'Online',
       liked: false,
       numberOfLikes: 20,
       name: 'Second Cv',
       image: 'mdi:resume',
       thema: 'Resume, Tools, Languages, Specialization',
       frameworks: ['Vue.js', 'HTML', 'CSS', 'Tailwind', 'Typescript'],
-      packages: '@iconify/vue, vue-router, vite'
+      packages: '@iconify/vue, vue-router, vite',
+      path: 'https://www.volkanfilazi.at/'
     },
     {
       status: 'Offline',
@@ -76,7 +82,8 @@ export class ProjectsService {
       image: 'mdi:resume',
       thema: 'Fake Instagram, Firebase Login System',
       frameworks: ['Kotlin'],
-      packages: 'retrofit, firebase'
+      packages: 'retrofit, firebase',
+      path: 'https://github.com/volkanfilazi/Android-Kotlin-Codagram'
     }
   ]
   vueFilter() {
